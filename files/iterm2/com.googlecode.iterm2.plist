@@ -19553,13 +19553,13 @@
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Vertical Spacing</key>
-			<real>0.85975772142410278</real>
+			<real>0.96079236268997192</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/lahwran</string>
+			<string>/Users/tuningmind</string>
 		</dict>
 		<dict>
 			<key>ASCII Anti Aliased</key>
@@ -20284,7 +20284,7 @@
 			<key>Window Type</key>
 			<integer>2</integer>
 			<key>Working Directory</key>
-			<string>/Users/lahwran</string>
+			<string>/Users/tuningmind</string>
 		</dict>
 		<dict>
 			<key>ASCII Anti Aliased</key>
@@ -21021,7 +21021,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/lahwran</string>
+			<string>/Users/tuningmind</string>
 		</dict>
 		<dict>
 			<key>ASCII Anti Aliased</key>
@@ -21548,7 +21548,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/lahwran</string>
+			<string>/Users/tuningmind</string>
 		</dict>
 		<dict>
 			<key>ASCII Anti Aliased</key>
@@ -22075,7 +22075,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/lahwran</string>
+			<string>/Users/tuningmind</string>
 		</dict>
 	</array>
 	<key>NoSyncNeverRemindPrefsChangesCopy</key>
@@ -22128,7 +22128,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/lahwran/dotfiles/files/iterm2</string>
+	<string>/Users/tuningmind/dotfiles/files/iterm2</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
