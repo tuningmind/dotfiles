@@ -305,6 +305,8 @@ endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * call InsertLeaveActions()
 
+nnoremap ,c :%s///gn
+
 " for some reason after loading ~/.vimrc with `source ~/.vimrc` inside vim,
 " everything gets highlighted. this works around that.
 noh
