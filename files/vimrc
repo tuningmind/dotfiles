@@ -283,6 +283,28 @@ nnoremap ,f 080l
 
 set backupskip=/tmp/*,/private/tmp/*
 
+" Mode Indication -Prominent!
+function! InsertStatuslineColor(mode)
+    hi Normal ctermfg=none ctermbg=16
+    " for stuff
+    " if a:mode == 'i'
+    "     hi statusline guibg=red
+    "     set cursorcolumn
+    " elseif a:mode == 'r'
+    "     hi statusline guibg=blue
+    " else
+    "     hi statusline guibg= magenta
+    " endif
+endfunction
+
+function! InsertLeaveActions()
+    hi Normal ctermfg=None ctermbg=None
+    "hi statusline ctermbg=none
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * call InsertLeaveActions()
+
 " for some reason after loading ~/.vimrc with `source ~/.vimrc` inside vim,
 " everything gets highlighted. this works around that.
 noh
