@@ -3,11 +3,13 @@ unset COLORFGBG
 export PATH="/usr/local/bin:$PATH"
 
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
-export ANDROID_HOME="$HOME/adt/sdk/"
-export PATH="$PATH:$HOME/adt/sdk/platform-tools"
-export PATH="$PATH:$HOME/adt/sdk/tools/"
+export ANDROID_HOME="$HOME/android-sdk/"
+export PATH="$PATH:$HOME/android-sdk/platform-tools"
+export PATH="$PATH:$HOME/android-sdk/tools/"
 
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
 
 alias brew='_permbrew'
+
+cd ~/dev

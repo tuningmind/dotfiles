@@ -51,10 +51,18 @@ set guioptions-=m " turn off menu bar
 set guioptions-=T " turn off toolbar
 
 " pythony tabs
+" set autoindent smarttab
+" set shiftwidth=4
+" set tabstop=4
+" set softtabstop=4
+" set expandtab
+" set backspace=indent,eol,start " defaults to eol,start iirc
+
+" javascripty tabs
 set autoindent smarttab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set backspace=indent,eol,start " defaults to eol,start iirc
 
@@ -80,7 +88,7 @@ set incsearch  " start searching before you hit enter
 
 "fold based on indent
 set foldmethod=indent
-set foldnestmax=100
+set foldnestmax=10
 
 highlight Folded ctermbg=none ctermfg=green cterm=none
 set foldcolumn=0 " no fold indicator column next to line numbers
@@ -98,6 +106,9 @@ highlight Folded ctermbg=none
 if has("syntax")
   syntax enable
 endif
+
+" hopefully this allows folding but not by default
+set nofoldenable
 
 set nowrap
 
@@ -168,7 +179,7 @@ nnoremap ,r :e __nonexistantfile__ \| e <C-r>=bufname("%")<CR><CR>
 nnoremap ,n :NERDTree<CR>
 
 " ,t to insert current time on new line (depends on @ command)
-nnoremap ,t :read !@ 'datetime.datetime.now().strftime("_B _d, _Y _I:_M:_S _p".replace("_", chr(37)))'<CR><CR>
+nnoremap ,t :read !@ 'datetime.datetime.now().strftime("_B _d, _Y _I:_M:_S _p".replace("_", chr(37)))'<CR>
 
 " ,g'search here'<CR> to search current git repo and paste results into
 " current file
@@ -189,7 +200,7 @@ noremap J j
 noremap K k
 noremap H h
 noremap L l
-
+map ; :
 
 " --- ctrlp config
 " this commented out code doesn't work, but it seems like it should...
@@ -199,6 +210,7 @@ noremap L l
 "    \ 'link': 'THIS_WILL_NEVER_MATCH'
 "    \ }
 set wildignore+=*.pyc,*.so,.git,.hg,htmlcov,__pycache__,.*.sw*
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_open_multiple_files='v'
 let g:ctrlp_open_new_file='v'
 let g:ctrlp_lazy_update=50
@@ -210,7 +222,8 @@ let g:ctrlp_prompt_mappings = {
             \ }
 let g:ctrlp_user_command = 'ctrlp_find %s'
 
-set titlestring=%{expand(\"%:p:h\")}/%t%(\ %M%)%(\ %a%)\ -\ %{$USER}@%{hostname()}\ -\ vim
+" set titlestring=%t%(\ %M%)%(\ %a%)\ -\ @%{hostname()}\ -\ vim
+set titlestring=%t%(\ %M%)%(\ %a%)
 
 "BEGIN from eevee's dotfiles: https://github.com/eevee/rc/blob/master/.vimrc
 if &term =~ "^screen"
@@ -287,14 +300,14 @@ set backupskip=/tmp/*,/private/tmp/*
 function! InsertStatuslineColor(mode)
     hi Normal ctermfg=none ctermbg=16
     " for stuff
-    " if a:mode == 'i'
-    "     hi statusline guibg=red
-    "     set cursorcolumn
-    " elseif a:mode == 'r'
-    "     hi statusline guibg=blue
-    " else
-    "     hi statusline guibg= magenta
-    " endif
+    if a:mode == 'i'
+        hi statusline guibg=red
+        " set cursorcolumn
+    elseif a:mode == 'r'      
+        hi statusline guibg=blue
+    else
+        hi statusline guibg= magenta
+    endif
 endfunction
 
 function! InsertLeaveActions()
@@ -310,3 +323,7 @@ nnoremap ,c :%s///gn
 " for some reason after loading ~/.vimrc with `source ~/.vimrc` inside vim,
 " everything gets highlighted. this works around that.
 noh
+
+" after a paste, gv re-selects what was originally pasted, y copies it again
+xnoremap p pgvy
+
